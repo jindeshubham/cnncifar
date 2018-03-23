@@ -36,19 +36,19 @@ model.add(Convolution2D(48,(3,3),padding='SAME',input_shape=(32,32,3)))
 model.add(Activation('relu'))
 model.add(Convolution2D(48,(3,3)))
 model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Dropout(0.25))
 model.add(Convolution2D(96,(3,3)))
 model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2,2)))
+#model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Dropout(0.25))
 model.add(Convolution2D(192,(3,3)))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Dropout(0.25))
 model.add(Flatten())
-model.add(Dense(512))
-model.add(Dropout(0.25))
+# model.add(Dense(512))
+# model.add(Dropout(0.25))
 model.add(Dense(256))
 model.add(Dropout(0.25))
 model.add(Dense(num_classes,activation='softmax'))
@@ -68,7 +68,7 @@ datagen = ImageDataGenerator(zoom_range=0.2,horizontal_flip=True)
 
 model_info = model.fit_generator(datagen.flow(train_features, train_labels, batch_size = 128),
                                  samples_per_epoch = train_features.shape[0], nb_epoch = 200,
-                                 validation_data = (test_features, test_labels), verbose=0)
+                                 validation_data = (test_features, test_labels), verbose=2)
 
 
 
