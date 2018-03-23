@@ -32,7 +32,7 @@ test_labels = np_utils.to_categorical(test_labels, num_classes)
 #
 model = Sequential()
 
-model.add(Convolution2D(48,(3,3),border_mode='SAME',input_shape=(32,32,3)))
+model.add(Convolution2D(48,(3,3),padding='SAME',input_shape=(32,32,3)))
 model.add(Activation('relu'))
 model.add(Convolution2D(48,(3,3)))
 model.add(Activation('relu'))
